@@ -156,7 +156,7 @@ void tetris_print(struct tetris *t)
                 switch (t->game[x][y])
                 {
                 case ' ':
-                    printf("%c ", t->game[x][y]);
+                    printf("⬛");
                     break;
                 case '0':
                     printf("⬜");
