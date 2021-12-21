@@ -12,6 +12,8 @@ struct tetris_level {
     int nsec;
 };
 
+
+
 struct tetris {
     char **game;
     int w;
@@ -62,7 +64,7 @@ struct termios save;
 void print_blocks()
 {
     printf("Opzioni:\n");;
-    printf("0->⬜ 1->🟨 2->🟧 3->🟥 4->🟪 \n");
+    printf("0->🟩 1->🟨 2->🟧 3->🟥 4->🟪 \n");
 }
 
 void tetris_cleanup_io()
@@ -118,9 +120,9 @@ void print_option(int x){
     if(x==0)
         printf ("°⬛⬛⬛⬛⬛⬛\n");
     if(x==1)
-        printf ("°⬛⬜⬜⬛⬛⬛\n");
+        printf ("°⬛🟩🟩⬛⬛⬛\n");
     if(x==2)
-        printf ("°⬛⬜⬜⬛⬛⬛\n");
+        printf ("°⬛🟩🟩⬛⬛⬛\n");
     if(x==3)
         printf ("°⬛⬛⬛⬛⬛⬛\n");
     if(x==4)
@@ -156,7 +158,7 @@ void awesome_cube(char x){
         printf("⬛");
         break;
     case '0':
-        printf("⬜");
+        printf("🟩");
         break;
     case '1':
         printf("🟨");
@@ -180,7 +182,7 @@ void tetris_print(struct tetris *t)
     int x,y;
     for (x=0; x<30; x++)
         printf("\n");
-    //printf("[LEVEL: %d | SCORE: %d]\n", t->level, t->score);
+    printf("     SCORE: [%d]\n", t->score);
     printf("\n");
     for (y=0; y<t->h; y++) {
         printf("     °");
@@ -305,8 +307,9 @@ void tetris_fall(struct tetris *t, int l)
 
 void tetris_check_lines(struct tetris *t)
 {
+    int count=0;
     int x,y,l;
-    int p=100;
+    int p=1;
     for (y=t->h-1; y>=0; y--) {
         l=1;
         for (x=0; x<t->w && l; x++) {
@@ -315,13 +318,24 @@ void tetris_check_lines(struct tetris *t)
             }
         }
         if (l) {
-            t->score += p;
-            p*=2;
+            
+            count++;
             tetris_fall(t, y);
             y++;
         }
+        
     }
+    if (count==1)
+        t->score += p;
+    if (count==2)
+        t->score += 3;
+    if (count==3)
+        t->score += 6;
+    if (count==4)
+        t->score += 12;
+        
 }
+
 
 int tetris_level(struct tetris *t)
 {
