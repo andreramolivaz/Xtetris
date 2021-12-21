@@ -5,13 +5,15 @@
 #include <signal.h>
 #include <time.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 void stat_match(void){
     
 }
 
-void title(void)
-{
+
+
+void title(void){
     system("clear");
     printf("\n------------------------------------------------");
     printf("\n-   |T|                |R|          |S|        -");
@@ -19,37 +21,40 @@ void title(void)
     printf("\n-       |E|                         Project°   -");
     printf("\n------------------------------------------------");
     printf("\n");
+
 }
 
-void istruction(void)
-{
+void istruction(void){
     title();
     printf("Comandi di gioco: \n");
-    printf("d -> destra  \n");
-    printf("a -> sinistra  \n");
-    printf("s -> velocizza la discesa \n");
+    printf("d-> destra  \n");
+    printf("a-> sinistra  \n");
+    printf("s-> velocizza la discesa \n");
 }
 
 int main(void) {
     int scelta;
     do{
         system("clear");
+       
         printf("------------------------------------------------\n");
         printf("-               TETRIS Project°                -\n");
         printf("------------------------------------------------\n");
         printf("- 1) Singleplayer                              -\n");
-        printf("- 2) Multiplayer                               -\n");
+        printf("- 2) Multiplayerv                              -\n");
         printf("- 3) Statistiche                               -\n");
         printf("- 4) Istruzioni                                -\n");
         printf("- 0) Esci                                      -\n");
         printf("------------------------------------------------\n");
+        
         printf("- Scegli:");
+        sleep(3);
         scanf("%d", &scelta);
         switch (scelta) {
             case 1:
                 system("clear");
                 tetris_run(10, 15);
-
+                
                 break;
             case 2:
                 system("clear");
@@ -77,6 +82,7 @@ int main(void) {
         printf("- 0) Esci                                      -\n");
         printf("------------------------------------------------\n");
         printf("- Scegli: ");
+        sleep(3);
         scanf("%d", &scelta);   
     }while(scelta!=0);
     system("clear");
