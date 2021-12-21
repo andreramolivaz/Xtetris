@@ -61,16 +61,16 @@ struct termios save;
 
 void print_blocks()
 {
-
-    printf(" |⬜⬜ |  🟨   |🟧🟧🟧🟧 |🟥 🟥|  🟪🟪\n");
-    printf(" |⬜⬜ |🟨🟨🟨 |         |🟥   |     🟪🟪  \n");
-    printf("                          |🟥           \n");
-    printf(" | 0    |   1   |   2     | 3   |    4  \n");
+    printf("Opzioni:\n");;
+    printf("0->⬜ 1->🟨 2->🟧 3->🟥 4->🟪 \n");
 }
 
 void tetris_cleanup_io()
 {
     tcsetattr(fileno(stdin),TCSANOW,&save);
+    sleep(4);
+    
+    
 }
 
 void tetris_signal_quit(int s)
@@ -114,6 +114,67 @@ void tetris_clean(struct tetris *t)
     free(t->game);
 }
 
+void print_option(int x){
+    if(x==0)
+        printf ("°⬛⬛⬛⬛⬛⬛\n");
+    if(x==1)
+        printf ("°⬛⬜⬜⬛⬛⬛\n");
+    if(x==2)
+        printf ("°⬛⬜⬜⬛⬛⬛\n");
+    if(x==3)
+        printf ("°⬛⬛⬛⬛⬛⬛\n");
+    if(x==4)
+        printf ("°⬛⬛🟨⬛⬛⬛\n");
+    if(x==5)
+        printf ("°⬛🟨🟨🟨⬛⬛\n");
+    if(x==6)
+        printf ("°⬛⬛⬛⬛⬛⬛\n");
+    if(x==7)
+        printf ("°⬛🟧🟧🟧🟧⬛\n");
+    if(x==8)
+        printf ("°⬛⬛⬛⬛⬛⬛\n");
+    if(x==9)
+        printf ("°⬛🟥🟥⬛⬛⬛\n");
+    if(x==10)
+        printf ("°⬛🟥⬛⬛⬛⬛\n");
+    if(x==11)
+        printf ("°⬛🟥⬛⬛⬛⬛\n");
+    if(x==12)
+        printf ("°⬛⬛⬛⬛⬛⬛\n");
+    if(x==13)
+        printf ("°⬛🟪🟪⬛⬛⬛\n");
+    if(x==14)
+        printf ("°⬛⬛🟪🟪⬛⬛\n");
+    if(x==15)
+        printf ("°\n");
+        
+}
+void awesome_cube(char x){
+    switch (x)
+    {
+    case ' ':
+        printf("⬛");
+        break;
+    case '0':
+        printf("⬜");
+        break;
+    case '1':
+        printf("🟨");
+        break;
+    case '2':
+        printf("🟧");
+        break;
+    case '3':
+        printf("🟥");
+        break;
+    case '4':
+        printf("🟪");
+        break;
+    default:
+        break;
+    }
+}
+
 void tetris_print(struct tetris *t)
 {
     int x,y;
@@ -128,57 +189,21 @@ void tetris_print(struct tetris *t)
             {
                 char r = t->current.data[y - t->y][x - t->x];
                 // mettere uno switch
-                switch (r)
-                {
-                case '0':
-                    printf("⬜");
-                    break;
-                case '1':
-                    printf("🟨");
-                    break;
-                case '2':
-                    printf("🟧");
-                    break;
-                case '3':
-                    printf("🟥");
-                    break;
-                case '4':
-                    printf("🟪");
-                    break;
-                default:
-                    break;
-                }
+                awesome_cube(r);
+
                 // printf("%c ", t->current.data[y - t->y][x - t->x]);
             }
             else
             {
+                awesome_cube(t->game[x][y]);
                 // printf("%c ", t->game[x][y]);
-                switch (t->game[x][y])
-                {
-                case ' ':
-                    printf("⬛");
-                    break;
-                case '0':
-                    printf("⬜");
-                    break;
-                case '1':
-                    printf("🟨");
-                    break;
-                case '2':
-                    printf("🟧");
-                    break;
-                case '3':
-                    printf("🟥");
-                    break;
-                case '4':
-                    printf("🟪");
-                    break;
-                default:
-                    break;
-                }
+
             }
+            
         }
-        printf ("°\n");
+        print_option(y);
+       // printf ("°\n");
+        
     }
     printf("     ");
     for (x=0; x<2*t->w+2; x++)
