@@ -6,14 +6,18 @@
 #include <time.h>
 #include <fcntl.h>
 #include <unistd.h>
+<<<<<<< HEAD
 #include <windows.h>
+=======
+>>>>>>> d20c147a35b29df3d583885c0d6942324cbd98b4
 
 void stat_match(void){
     
 }
 
-void title(void)
-{
+
+
+void title(void){
     system("clear");
     printf("\n------------------------------------------------");
     printf("\n-   |T|                |R|          |S|        -");
@@ -21,10 +25,10 @@ void title(void)
     printf("\n-       |E|                         Project°   -");
     printf("\n------------------------------------------------");
     printf("\n");
+
 }
 
-void istruction(void)
-{
+void istruction(void){
     title();
     printf("Comandi di gioco: \n");
     printf("d-> destra  \n");
@@ -36,7 +40,11 @@ int main(void) {
     int scelta;
     do{
         system("clear");
+<<<<<<< HEAD
 
+=======
+       
+>>>>>>> d20c147a35b29df3d583885c0d6942324cbd98b4
         printf("------------------------------------------------\n");
         printf("-               TETRIS Project°                -\n");
         printf("------------------------------------------------\n");
@@ -46,7 +54,11 @@ int main(void) {
         printf("- 4) Istruzioni                                -\n");
         printf("- 0) Esci                                      -\n");
         printf("------------------------------------------------\n");
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> d20c147a35b29df3d583885c0d6942324cbd98b4
         printf("- Scegli:");
         sleep(3);
         scanf("%d", &scelta);
@@ -54,7 +66,7 @@ int main(void) {
             case 1:
                 system("clear");
                 tetris_run(10, 15);
-
+                
                 break;
             case 2:
                 system("clear");
@@ -83,7 +95,11 @@ int main(void) {
         printf("------------------------------------------------\n");
         printf("- Scegli: ");
         sleep(3);
+<<<<<<< HEAD
         scanf("%d", &scelta);
+=======
+        scanf("%d", &scelta);   
+>>>>>>> d20c147a35b29df3d583885c0d6942324cbd98b4
     }while(scelta!=0);
     system("clear");
     printf("------------------------------------------------\n");
