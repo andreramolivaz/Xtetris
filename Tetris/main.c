@@ -5,14 +5,17 @@
 #include <signal.h>
 #include <time.h>
 #include <fcntl.h>
+#include <unistd.h>
+<<<<<<< HEAD
+#include <windows.h>
+=======
+>>>>>>> d20c147a35b29df3d583885c0d6942324cbd98b4
 
 void stat_match(void){
     
 }
 
-void istruction(void){
-    
-}
+
 
 void title(void){
     system("clear");
@@ -22,36 +25,63 @@ void title(void){
     printf("\n-       |E|                         Project°   -");
     printf("\n------------------------------------------------");
     printf("\n");
+
+}
+
+void istruction(void){
+    title();
+    printf("Comandi di gioco: \n");
+    printf("d-> destra  \n");
+    printf("a-> sinistra  \n");
+    printf("s-> velocizza la discesa \n");
 }
 
 int main(void) {
     int scelta;
     do{
+        system("clear");
+<<<<<<< HEAD
+
+=======
+       
+>>>>>>> d20c147a35b29df3d583885c0d6942324cbd98b4
         printf("------------------------------------------------\n");
         printf("-               TETRIS Project°                -\n");
         printf("------------------------------------------------\n");
         printf("- 1) Singleplayer                              -\n");
-        printf("- 2) Multiplayer                               -\n");
-        printf("- 3) Stat match precedenti                     -\n");
+        printf("- 2) Multiplayerv                              -\n");
+        printf("- 3) Statistiche                               -\n");
         printf("- 4) Istruzioni                                -\n");
         printf("- 0) Esci                                      -\n");
         printf("------------------------------------------------\n");
+<<<<<<< HEAD
+
+=======
+        
+>>>>>>> d20c147a35b29df3d583885c0d6942324cbd98b4
         printf("- Scegli:");
+        sleep(3);
         scanf("%d", &scelta);
         switch (scelta) {
             case 1:
+                system("clear");
                 tetris_run(10, 15);
+                
                 break;
             case 2:
+                system("clear");
                 tetris_run(10, 15);
                 break;
             case 3:
+                system("clear");
                 stat_match();
                 break;
             case 4:
+                system("clear");
                 istruction();
                 break;
             case 0:
+                system("clear");
                 printf("- Sicuro di voler uscire? \n");
                 break;
             default:
@@ -64,15 +94,20 @@ int main(void) {
         printf("- 0) Esci                                      -\n");
         printf("------------------------------------------------\n");
         printf("- Scegli: ");
+        sleep(3);
+<<<<<<< HEAD
+        scanf("%d", &scelta);
+=======
         scanf("%d", &scelta);   
+>>>>>>> d20c147a35b29df3d583885c0d6942324cbd98b4
     }while(scelta!=0);
-    
+    system("clear");
     printf("------------------------------------------------\n");
     printf("-               TETRIS Project°                -\n");
     printf("------------------------------------------------\n");
     printf("- Grazie per aver utilizzato questo software   -\n");
     printf("-                                              -\n");
-    printf("- Edited by: Ramolivaz André                   -\n");
+    printf("- Edited by: The Tetris Terminator team        -\n");
     printf("------------------------------------------------\n");
     return 0;
 }
