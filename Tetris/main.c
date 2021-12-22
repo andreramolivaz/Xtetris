@@ -5,6 +5,8 @@
 #include <signal.h>
 #include <time.h>
 #include <fcntl.h>
+#include <unistd.h>
+#include <windows.h>
 
 void stat_match(void){
     
@@ -25,25 +27,28 @@ void istruction(void)
 {
     title();
     printf("Comandi di gioco: \n");
-    printf("d -> destra  \n");
-    printf("a -> sinistra  \n");
-    printf("s -> velocizza la discesa \n");
+    printf("d-> destra  \n");
+    printf("a-> sinistra  \n");
+    printf("s-> velocizza la discesa \n");
 }
 
 int main(void) {
     int scelta;
     do{
         system("clear");
+
         printf("------------------------------------------------\n");
         printf("-               TETRIS Project°                -\n");
         printf("------------------------------------------------\n");
         printf("- 1) Singleplayer                              -\n");
-        printf("- 2) Multiplayer                               -\n");
+        printf("- 2) Multiplayerv                              -\n");
         printf("- 3) Statistiche                               -\n");
         printf("- 4) Istruzioni                                -\n");
         printf("- 0) Esci                                      -\n");
         printf("------------------------------------------------\n");
+
         printf("- Scegli:");
+        sleep(3);
         scanf("%d", &scelta);
         switch (scelta) {
             case 1:
@@ -77,7 +82,8 @@ int main(void) {
         printf("- 0) Esci                                      -\n");
         printf("------------------------------------------------\n");
         printf("- Scegli: ");
-        scanf("%d", &scelta);   
+        sleep(3);
+        scanf("%d", &scelta);
     }while(scelta!=0);
     system("clear");
     printf("------------------------------------------------\n");

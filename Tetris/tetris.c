@@ -6,23 +6,27 @@
 #include <time.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <windows.h>
 
 struct tetris_level {
     int score;
     int nsec;
 };
 
-struct tetris {
+struct tetris
+{
     char **game;
     int w;
     int h;
     int level;
     int gameover;
     int score;
-    struct tetris_block {
+    struct tetris_block
+    {
         char data[5][5];
         int w;
         int h;
+        int count;
     } current;
     int x;
     int y;
@@ -30,47 +34,26 @@ struct tetris {
 
 struct tetris_block blocks[] =
     {
-        {{"00", "00"}, 2, 2},
-        {{" 1 ", "111"}, 3, 2},
-        {{"2222"}, 4, 1},
-        {{"33", "3 ", "3 "}, 2, 3},
-        {{"44 ", " 44"}, 3, 2}};
+        {{"00", "00"}, 2, 2, 20},
+        {{" 1 ", "111"}, 3, 2, 20},
+        {{"2222"}, 4, 1, 20},
+        {{"33", "3 ", "3 "}, 2, 3, 20},
+        {{"44 ", " 44"}, 3, 2, 20}};
 
-struct tetris_level levels[]=
-{
-    {0,
-        1200000},
-    {1500,
-        900000},
-    {8000,
-        700000},
-    {20000,
-        500000},
-    {40000,
-        400000},
-    {75000,
-        300000},
-    {100000,
-        200000}
-};
-
-#define TETRIS_PIECES (sizeof(blocks)/sizeof(struct tetris_block))
-#define TETRIS_LEVELS (sizeof(levels)/sizeof(struct tetris_level))
+#define TETRIS_PIECES (sizeof(blocks) / sizeof(struct tetris_block))
 
 struct termios save;
 
 void print_blocks()
 {
-
-    printf(" |⬜⬜ |  🟨   |🟧🟧🟧🟧 |🟥 🟥|  🟪🟪\n");
-    printf(" |⬜⬜ |🟨🟨🟨 |         |🟥   |     🟪🟪  \n");
-    printf("                          |🟥           \n");
-    printf(" | 0    |   1   |   2     | 3   |    4  \n");
+    printf("Opzioni:\n");
+    printf("0->🟩 1->🟨 2->🟧 3->🟥 4->🟪 \n");
 }
 
 void tetris_cleanup_io()
 {
-    tcsetattr(fileno(stdin),TCSANOW,&save);
+    tcsetattr(fileno(stdin), TCSANOW, &save);
+    sleep(4);
 }
 
 void tetris_signal_quit(int s)
@@ -114,71 +97,96 @@ void tetris_clean(struct tetris *t)
     free(t->game);
 }
 
+void print_option(int x)
+{
+    if (x == 0)
+        printf("°⬛⬛⬛⬛⬛⬛\n");
+    if (x == 1)
+        printf("°⬛🟩🟩⬛⬛⬛\n");
+    if (x == 2)
+        printf("°⬛🟩🟩⬛⬛x%d\n", blocks[0].count);
+    if (x == 3)
+        printf("°⬛⬛⬛⬛⬛⬛\n");
+    if (x == 4)
+        printf("°⬛⬛🟨⬛⬛⬛\n");
+    if (x == 5)
+        printf("°⬛🟨🟨🟨⬛x%d\n", blocks[1].count);
+    if (x == 6)
+        printf("°⬛⬛⬛⬛⬛⬛\n");
+    if (x == 7)
+        printf("°⬛🟧🟧🟧🟧x%d\n", blocks[2].count);
+    if (x == 8)
+        printf("°⬛⬛⬛⬛⬛⬛\n");
+    if (x == 9)
+        printf("°⬛🟥🟥⬛⬛⬛\n");
+    if (x == 10)
+        printf("°⬛🟥⬛⬛⬛x%d\n", blocks[3].count);
+    if (x == 11)
+        printf("°⬛🟥⬛⬛⬛⬛\n");
+    if (x == 12)
+        printf("°⬛⬛⬛⬛⬛⬛\n");
+    if (x == 13)
+        printf("°⬛🟪🟪⬛⬛⬛\n");
+    if (x == 14)
+        printf("°⬛⬛🟪🟪⬛x%d\n", blocks[4].count);
+    if (x == 15)
+        printf("°\n");
+}
+void awesome_cube(char x)
+{
+    switch (x)
+    {
+    case ' ':
+        printf("⬛");
+        break;
+    case '0':
+        printf("🟩");
+        break;
+    case '1':
+        printf("🟨");
+        break;
+    case '2':
+        printf("🟧");
+        break;
+    case '3':
+        printf("🟥");
+        break;
+    case '4':
+        printf("🟪");
+        break;
+    default:
+        break;
+    }
+}
+
 void tetris_print(struct tetris *t)
 {
-    int x,y;
-    for (x=0; x<30; x++)
+    int x, y;
+    for (x = 0; x < 30; x++)
         printf("\n");
-    //printf("[LEVEL: %d | SCORE: %d]\n", t->level, t->score);
+    printf("     SCORE: [%d]\n", t->score);
     printf("\n");
-    for (y=0; y<t->h; y++) {
+    for (y = 0; y < t->h; y++)
+    {
         printf("     °");
-        for (x=0; x<t->w; x++) {
+        for (x = 0; x < t->w; x++)
+        {
             if (x >= t->x && y >= t->y && x < (t->x + t->current.w) && y < (t->y + t->current.h) && t->current.data[y - t->y][x - t->x] != ' ')
             {
                 char r = t->current.data[y - t->y][x - t->x];
                 // mettere uno switch
-                switch (r)
-                {
-                case '0':
-                    printf("⬜");
-                    break;
-                case '1':
-                    printf("🟨");
-                    break;
-                case '2':
-                    printf("🟧");
-                    break;
-                case '3':
-                    printf("🟥");
-                    break;
-                case '4':
-                    printf("🟪");
-                    break;
-                default:
-                    break;
-                }
+                awesome_cube(r);
+
                 // printf("%c ", t->current.data[y - t->y][x - t->x]);
             }
             else
             {
+                awesome_cube(t->game[x][y]);
                 // printf("%c ", t->game[x][y]);
-                switch (t->game[x][y])
-                {
-                case ' ':
-                    printf("⬛");
-                    break;
-                case '0':
-                    printf("⬜");
-                    break;
-                case '1':
-                    printf("🟨");
-                    break;
-                case '2':
-                    printf("🟧");
-                    break;
-                case '3':
-                    printf("🟥");
-                    break;
-                case '4':
-                    printf("🟪");
-                    break;
-                default:
-                    break;
-                }
             }
         }
-        printf ("°\n");
+        print_option(y);
+        // printf ("°\n");
     }
     printf("     ");
     for (x=0; x<2*t->w+2; x++)
@@ -231,7 +239,7 @@ void tetris_print_block(struct tetris *t)
 
 void tetris_rotate(struct tetris *t)
 {
-    struct tetris_block b=t->current;
+    struct tetris_block b = t->current;
     struct tetris_block s=b;
     int x,y;
     b.w=s.h;
@@ -254,6 +262,7 @@ void tetris_rotate(struct tetris *t)
 
 void tetris_gravity(struct tetris *t)
 {
+
     int x, y, k = 0;
     t->y++;
     if (tetris_hittest(t)) {
@@ -263,6 +272,7 @@ void tetris_gravity(struct tetris *t)
         printf("Scegli il tetramino:");
         sleep(3);
         scanf("%d", &k);
+        blocks[k].count--;
         tetris_new_block(t, k);
     }
 }
@@ -280,8 +290,9 @@ void tetris_fall(struct tetris *t, int l)
 
 void tetris_check_lines(struct tetris *t)
 {
+    int count = 0;
     int x,y,l;
-    int p=100;
+    int p = 1;
     for (y=t->h-1; y>=0; y--) {
         l=1;
         for (x=0; x<t->w && l; x++) {
@@ -290,23 +301,20 @@ void tetris_check_lines(struct tetris *t)
             }
         }
         if (l) {
-            t->score += p;
-            p*=2;
+
+            count++;
             tetris_fall(t, y);
             y++;
         }
     }
-}
-
-int tetris_level(struct tetris *t)
-{
-    int i;
-    for (i=0; i<TETRIS_LEVELS; i++) {
-        if (t->score>=levels[i].score) {
-            t->level = i+1;
-        } else break;
-    }
-    return levels[t->level-1].nsec;
+    if (count == 1)
+        t->score += p;
+    if (count == 2)
+        t->score += 3;
+    if (count == 3)
+        t->score += 6;
+    if (count == 4)
+        t->score += 12;
 }
 
 int tetris_run(int w, int h)
@@ -322,7 +330,7 @@ int tetris_run(int w, int h)
     printf("Scegli il tetramino:");
 
     scanf("%d", &k);
-
+    blocks[k].count--;
     tetris_set_ioconfig();
     tetris_init(&t, w, h);
     srand(time(NULL));
@@ -362,7 +370,6 @@ int tetris_run(int w, int h)
                 break;
             }
         }
-        tm.tv_nsec=tetris_level(&t);
     }
 
     tetris_print(&t);

@@ -31,8 +31,4 @@ void tetris_fall(struct tetris *t, int l);
 
 void tetris_check_lines(struct tetris *t);
 
-int tetris_level(struct tetris *t);
-
-
-
 #endif //TETRIS_H
