@@ -17,9 +17,9 @@ A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org
   - Player loses if they fail to place a piece correctly
   - In case of clearing 3 or more lines with a single move, opponent's field is modified by inverting the corresponding number of lines in the lower part     of the playing field
   - Player with highest score wins when pieces run out
-
-<img src="http://vdapoi.altervista.org/ezgif-3-4b13a6c0a4.gif" width="100" height="100" />
-
+<div align="center">
+<img src="http://vdapoi.altervista.org/ezgif-3-4b13a6c0a4.gif" width="300" height="300" />
+<\div>
 
 ## Getting Started
 
