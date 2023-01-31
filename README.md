@@ -23,9 +23,10 @@ A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org
 <div align="center">
  <table>
    <tr>
-<td><img src="http://vdapoi.altervista.org/ezgif-3-4b13a6c0a4.gif" width="300" height="250" /></td>
-    <td><img src="http://vdapoi.altervista.org/ezgif.com-gif-maker-2.gif" width="300" height="250" />
-  <em>image_caption</em></td> 
+<td><img src="http://vdapoi.altervista.org/ezgif-3-4b13a6c0a4.gif" width="300" height="250" /><br>
+  <em>singleplayer</em></td> 
+    <td><img src="http://vdapoi.altervista.org/ezgif.com-gif-maker-2.gif" width="300" height="250" /><br>
+  <em>multiplayer(PC VS CPU)</em></td> 
    </tr>
   </table>
 </div>
