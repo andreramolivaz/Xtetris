@@ -20,10 +20,10 @@ A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org
 
 ## Getting Started
 
-To play X-Tetris, follow these steps:
+To play Xtetris, follow these steps:
 
 1. Clone or download this repository
-2. Compile the source code with a C compiler
+2. Compile the source code with a C compiler (i.e. XCode)
 3. Run the program and choose the game mode from the initial menu
 
 ## Requirements
