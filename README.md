@@ -51,7 +51,7 @@ To play Xtetris, follow these steps:
 - `#include <termios.h>` (only available on Linux and macOS) for simulating the gravity of the game
 - `#include <time.h>` for time-related functions
 - `#include <fcntl.h>` for file control options
-- `#include <AudioToolbox/AudioServices.h>` (only available on macOS) for audio services
+- `#include <AudioToolbox/AudioServices.h>` (only available on macOS) for audio services sound for the blocks gravity
 
 ## Project Structure
 
