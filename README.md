@@ -19,8 +19,7 @@ A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org
   - Player with highest score wins when pieces run out
 
 
-
-  ![](https://github.com/andreramolivaz/Xtetris-documentation/ezgif-3-4b13a6c0a4.gif)
+![Alt Text](http://vdapoi.altervista.org/ezgif-3-4b13a6c0a4.gif)
 ## Getting Started
 
 To play Xtetris, follow these steps:
