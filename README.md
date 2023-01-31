@@ -1,8 +1,8 @@
-#X-Tetris
+# X-Tetris
 
 A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org/wiki/Tetris) and additional variations.
 
-##Features
+## Features
 
 - Singleplayer mode
   - Initial 20 pieces of each type, called tetrominoes
@@ -18,7 +18,7 @@ A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org
   - In case of clearing 3 or more lines with a single move, opponent's field is modified by inverting the corresponding number of lines in the lower part     of the playing field
   - Player with highest score wins when pieces run out
 
-##Getting Started
+## Getting Started
 
 To play X-Tetris, follow these steps:
 
@@ -26,12 +26,12 @@ To play X-Tetris, follow these steps:
 2. Compile the source code with a C compiler
 3. Run the program and choose the game mode from the initial menu
 
-##Requirements
+## Requirements
 
 C compiler
 termios library (for simulating gravity of the game, only available on Linux and macOS)
 
-##Project Structure
+## Project Structure
 
 
 
@@ -39,11 +39,12 @@ X-Tetris
 ├── main.c
 ├── Tetris.c
 └── Tetris.h
+
 - `main.c` contains the main function and initial menu
 - `Tetris.c` implements the game logic
 - `Tetris.h` contains the declarations of functions used in Tetris.c
 
-##Documentation
+## Documentation
 
 You can find the detailed documentation of the project at https://andreramolivaz.github.io/XTetris-documentation/.
 
