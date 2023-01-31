@@ -19,6 +19,7 @@ A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org
   - Player with highest score wins when pieces run out
 <div align="center">
 <img src="http://vdapoi.altervista.org/ezgif-3-4b13a6c0a4.gif" width="300" height="250" />
+  <em>image_caption</em>
 </div>
 
 ## Getting Started
