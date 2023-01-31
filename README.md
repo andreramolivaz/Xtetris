@@ -34,11 +34,12 @@ termios library (for simulating gravity of the game, only available on Linux and
 ## Project Structure
 
 
+    .
+    X-Tetris               
+    ├── main.c                   
+    ├── tetris.c                  
+    └── tetris.h
 
-X-Tetris
-├── main.c
-├── Tetris.c
-└── Tetris.h
 
 - `main.c` contains the main function and initial menu
 - `Tetris.c` implements the game logic
