@@ -10,6 +10,7 @@ A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org
   - 10x15 playing field
   - Points based on number of rows cleared at once
   - Game ends when pieces run out or player fails to place a tetromino within the height limit
+  ![](https://github.com/andreramolivaz/Xtetris-documentation/Your_GIF_Name.gif)
 - Multiplayer mode
   - Two players take alternate turns each in their own playing field but drawing from the same set of tetrominoes
   - Twice as many pieces available 
