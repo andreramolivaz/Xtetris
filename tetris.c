@@ -690,7 +690,7 @@ label2:
         }
         if (count%350 == 0) {
             tetris_gravity(&t);
-            //AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
+            AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
             
             tetris_check_lines(&t,NULL);
         }
@@ -782,7 +782,7 @@ label1:
             tetris_print2(&t1,&t2);
         }
         if (count%350 == 0) {
-          // AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
+           AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
             
             //tetris_gravity(&t1);
             tetris_gravity_random(&t1,&t2);
@@ -931,7 +931,7 @@ label2:
             //tetris_gravity(&t1);
             tetris_gravity_random2(&t1,&t2);
             
-            //AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
+            AudioServicesPlayAlertSound(kSystemSoundID_UserPreferredAlert);
             
             
             tetris_check_lines(&t1,&t2);
