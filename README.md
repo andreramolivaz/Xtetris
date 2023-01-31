@@ -36,7 +36,7 @@ To play Xtetris, follow these steps:
   <em>singleplayer</em></td> 
     <td><img src="http://vdapoi.altervista.org/ezgif.com-gif-maker-2.gif" width="300" height="250" /><br>
   <em>multiplayer(player1 vs randomCPU)</em></td> 
-      <td><img src="http://vdapoi.altervista.org/ezgif.com-gif-maker-3.gif" width="300" height="250" /><br>
+      <td><img src="http://vdapoi.altervista.org/ezgif.com-gif-maker-4.gif" width="300" height="250" /><br>
   <em>multiplayer(player1 vs player2)</em></td> 
    </tr>
   </table>
