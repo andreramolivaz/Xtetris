@@ -1,4 +1,4 @@
-# X-Tetris
+# Xtetris
 
 A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org/wiki/Tetris) and additional variations.
 
