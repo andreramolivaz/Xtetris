@@ -32,11 +32,11 @@ To play Xtetris, follow these steps:
 <div align="center">
  <table>
    <tr>
-<td><img src="http://vdapoi.altervista.org/ezgif-3-4b13a6c0a4.gif" width="300" height="250" /><br>
+<td><img src="http://vdapoi.altervista.org/ezgif-3-4b13a6c0a4.gif" width="250" height="200" /><br>
   <em>singleplayer</em></td> 
-    <td><img src="http://vdapoi.altervista.org/ezgif.com-gif-maker-2.gif" width="300" height="250" /><br>
+    <td><img src="http://vdapoi.altervista.org/ezgif.com-gif-maker-2.gif" width="250" height="200" /><br>
   <em>multiplayer(player1 vs player2)</em></td> 
-      <td><img src="http://vdapoi.altervista.org/ezgif.com-gif-maker-5.gif" width="300" height="250" /><br>
+      <td><img src="http://vdapoi.altervista.org/ezgif.com-gif-maker-5.gif" width="250" height="200" /><br>
   <em>multiplayer(player1 vs randomCPU)</em></td> 
    </tr>
   </table>
@@ -45,8 +45,13 @@ To play Xtetris, follow these steps:
 
 ## Requirements
 
-C compiler
-termios library (for simulating gravity of the game, only available on Linux and macOS)
+- `C compiler`
+- `#include <stdio.h>` for input/output operations
+- `#include <stdlib.h>` for standard library functions
+- `#include <termios.h>` (only available on Linux and macOS) for simulating the gravity of the game
+- `#include <time.h>` for time-related functions
+- `#include <fcntl.h>` for file control options
+- `#include <AudioToolbox/AudioServices.h>` (only available on macOS) for audio services
 
 ## Project Structure
 
