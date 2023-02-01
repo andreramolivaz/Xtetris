@@ -48,7 +48,7 @@ To play Xtetris, follow these steps:
 - `C compiler`
 - `#include <stdio.h>` for input/output operations
 - `#include <stdlib.h>` for standard library functions
-- `#include <termios.h>` (only available on Linux and macOS) for simulating the gravity of the game
+- `#include <termios.h>` useful to change settings for terminal env
 - `#include <time.h>` for time-related functions
 - `#include <fcntl.h>` for file control options
 - `#include <AudioToolbox/AudioServices.h>` (only available on macOS) for audio services sound for the blocks gravity ([look at the code](https://github.com/andreramolivaz/Xtetris/blob/149726a35198c259936bb1c76ccc528d61d4548a/tetris.c#L693))
