@@ -66,6 +66,6 @@ To play Xtetris, follow these steps:
 
 ## Documentation
 
-You can find the detailed documentation of the project [here](https://andreramolivaz.github.io/XTetris-documentation/).
+You can find the documentation of the project [here](https://andreramolivaz.github.io/XTetris-documentation/).
 
 
