@@ -1,4 +1,6 @@
 # Xtetris
+
+[![docs](https://img.shields.io/badge/docs-website-blue?style=plastic&link=https://andreramolivaz.github.io/CT0540-graph/)](https://andreramolivaz.github.io/XTetris-documentation/)
 [![CodeFactor](https://www.codefactor.io/repository/github/andreramolivaz/xtetris/badge)](https://www.codefactor.io/repository/github/andreramolivaz/xtetris)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5effb9ba43b6487c90d1935411bb4995)](https://app.codacy.com/gh/andreramolivaz/Xtetris/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 <a href="https://scan.coverity.com/projects/andreramolivaz-xtetris">
