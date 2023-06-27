@@ -1,4 +1,5 @@
 # Xtetris
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b2234597cbfc4420a4ef5e53b1b44f41)](https://app.codacy.com/gh/andreramolivaz/Xtetris?utm_source=github.com&utm_medium=referral&utm_content=andreramolivaz/Xtetris&utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/andreramolivaz/xtetris/badge)](https://www.codefactor.io/repository/github/andreramolivaz/xtetris)
 
 A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org/wiki/Tetris) and additional variations.
