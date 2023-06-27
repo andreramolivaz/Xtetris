@@ -1,4 +1,5 @@
 # Xtetris
+[![CodeFactor](https://www.codefactor.io/repository/github/andreramolivaz/xtetris/badge)](https://www.codefactor.io/repository/github/andreramolivaz/xtetris)
 
 A Tetris game in C language with rules from [Wikipedia](https://it.wikipedia.org/wiki/Tetris) and additional variations.
 
